@@ -484,6 +484,10 @@ button{font:inherit;color:inherit}
 .ad-l{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-family:"Prompt",var(--font-display);font-weight:700;font-size:26px;color:#fff;background:var(--c);box-shadow:0 5px 0 rgba(0,0,0,.18)}
 .addie .fc-k{background:color-mix(in srgb,var(--c) 14%,#fff);color:var(--c)}
 .addie .chips>span{background:color-mix(in srgb,var(--c) 8%,#fff);border-color:color-mix(in srgb,var(--c) 25%,#fff)}
+.chips .nb{padding:0;border:0;background:none;border-radius:0;box-shadow:none}
+.addie .chips{flex-direction:column;flex-wrap:nowrap;gap:8px}
+.addie .chips>span{display:block;position:relative;padding:9px 14px 9px 38px;font-size:15px;line-height:1.7;border-radius:12px}
+.addie .chips>span::before{content:"";position:absolute;left:15px;top:1.05em;width:10px;height:10px;border-radius:50%;background:var(--c)}
 .scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin-top:10px}
 .scale span{display:flex;flex-direction:column;align-items:center;padding:8px 4px;border-radius:10px;background:var(--c);color:#fff;font-size:13px;text-align:center}
 .scale b{font-family:var(--font-display);font-weight:500;font-size:14.5px}
