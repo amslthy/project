@@ -866,6 +866,21 @@ button{font:inherit;color:inherit}
   .pager{grid-template-columns:minmax(0,1fr)}
   .pager button.nx{grid-column:auto}
 }
+
+/* ---------- กรอบหัวข้อย่อย: ผลการพัฒนา ตอนที่ 2 ---------- */
+#result-work .sub-h{position:relative;display:flex;align-items:center;gap:12px;width:fit-content;max-width:100%;margin-bottom:18px;padding:10px 24px 10px 10px;border-radius:20px;font-size:clamp(18px,2.1vw,22px);color:#0b4f4a;background:linear-gradient(135deg,#ffffff 0%,#f0fdfa 100%);border:2px solid #99f6e4;box-shadow:0 5px 0 #5eead4,0 14px 28px rgba(15,118,110,.16)}
+#result-work .sub-h::after{content:"";position:absolute;right:-9px;top:-9px;width:20px;height:20px;background:#ffc24d;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:shStar 2.6s ease-in-out infinite}
+@keyframes shStar{50%{transform:scale(.6) rotate(45deg);opacity:.6}}
+#result-work .sh-ic{flex:none;width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,#14b8a6,#0f766e);box-shadow:0 4px 0 #115e59,inset 0 0 0 2px rgba(255,255,255,.25)}
+@media (max-width:560px){#result-work .sub-h{padding:8px 18px 8px 8px;border-radius:16px}#result-work .sh-ic{width:36px;height:36px;font-size:18px;border-radius:12px}}
+
+/* ---------- จิ๊กซอว์ลอย: พื้นหลังหน้าผลการพัฒนา ---------- */
+.jigs{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.jig{position:absolute;width:var(--s,70px);aspect-ratio:1;opacity:var(--o,.45);animation:jigF var(--d,18s) ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+.jig svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 6px 12px rgba(15,90,80,.08));animation:jigSpin var(--r,26s) linear infinite}
+.jig.rev svg{animation-direction:reverse}
+@keyframes jigF{0%{translate:0 0}33%{translate:var(--x1,40px) var(--y1,-50px)}66%{translate:var(--x2,-30px) var(--y2,-20px)}100%{translate:var(--x3,20px) var(--y3,-80px)}}
+@keyframes jigSpin{to{rotate:360deg}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
@@ -1336,7 +1351,7 @@ button{font:inherit;color:inherit}
   <!-- ตอนที่ 2 -->
   <section class="isec" id="result-work" data-sec="ตอนที่ 2 ผลการพัฒนารูปแบบการจัดการเรียนรู้และหุ่นยนต์ช่วยสอน">
     <h2 class="ih"><b>2</b>ผลการพัฒนารูปแบบการจัดการเรียนรู้และหุ่นยนต์ช่วยสอน</h2>
-    <h3 class="sub-h">รูปแบบการจัดการเรียนรู้โดยใช้หุ่นยนต์ช่วยสอน</h3>
+    <h3 class="sub-h"><span class="sh-ic" aria-hidden="true">📘</span>รูปแบบการจัดการเรียนรู้โดยใช้หุ่นยนต์ช่วยสอน</h3>
     <p class="sub-p">ผู้วิจัยได้พัฒนากระบวนการจัดการเรียนรู้เพื่อส่งเสริมทักษะการเขียนโปรแกรมและการคิดเชิงคำนวณ สำหรับนักเรียนชั้นประถมศึกษาปีที่ 4 – 6 แบ่งออกเป็น 5 ขั้นตอนหลัก ดังนี้</p>
     <div class="two">
       <button class="shot tall" type="button" data-zoom="assets/steps.webp" data-alt="รูปแบบการจัดการเรียนรู้โดยใช้หุ่นยนต์ช่วยสอน 5 ขั้นตอน" aria-label="ขยายภาพรูปแบบการจัดการเรียนรู้โดยใช้หุ่นยนต์ช่วยสอน">
@@ -1352,7 +1367,7 @@ button{font:inherit;color:inherit}
       </ol>
     </div>
 
-    <h3 class="sub-h" style="margin-top:34px">หุ่นยนต์ ROBOCART</h3>
+    <h3 class="sub-h" style="margin-top:34px"><span class="sh-ic" aria-hidden="true">🤖</span>หุ่นยนต์ ROBOCART</h3>
     <div class="slider" aria-roledescription="carousel" aria-label="ภาพหุ่นยนต์ ROBOCART">
       <div class="sl-track" tabindex="0">
         <figure class="sl-item"><img src="assets/robot-l1.webp" alt="หุ่นยนต์ ROBOCART Level 1 ชุดเคลื่อนที่พื้นฐาน micro:bit บนบอร์ด REKA:BIT และฐาน ROBO BASE MINI" loading="lazy"><figcaption><b style="--c:var(--lv1)">LEVEL 1</b>ควบคุมหุ่นยนต์ให้เคลื่อนที่</figcaption></figure>
@@ -1364,16 +1379,16 @@ button{font:inherit;color:inherit}
       <div class="sl-dots" role="tablist"></div>
     </div>
 
-    <h3 class="sub-h" style="margin-top:34px">ตัวอย่างการเคลื่อนไหวของหุ่นยนต์ ROBOCART</h3>
+    <h3 class="sub-h" style="margin-top:34px"><span class="sh-ic" aria-hidden="true">🎬</span>ตัวอย่างการเคลื่อนไหวของหุ่นยนต์ ROBOCART</h3>
     <div class="video vid-demo" id="demo-video"><iframe id="demo-frame" src="https://www.youtube.com/embed/QsttLofJ2HQ?rel=0" title="ตัวอย่างการเคลื่อนไหวของหุ่นยนต์ ROBOCART" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
     <!-- data-t = วินาทีที่ต้องการให้คลิปข้ามไป (แก้ตัวเลขให้ตรงกับเวลาในคลิป) -->
     <div class="vchaps" role="group" aria-label="ข้ามไปยังส่วนต่างๆ ของคลิป">
-      <button type="button" data-vt data-t="0"><i>บทที่ 2</i>การเคลื่อนที่</button>
-      <button type="button" data-vt data-t="0"><i>บทที่ 3</i>วิ่งตามเส้น และวิ่งตามเส้นจนครบรอบ</button>
-      <button type="button" data-vt data-t="0"><i>บทที่ 4</i>วิ่งหลบสิ่งกีดขวางโดยใช้ปุ่ม และอัตโนมัติ</button>
+      <button type="button" data-vt data-t="0:00"><i>บทที่ 2</i>การเคลื่อนที่</button>
+      <button type="button" data-vt data-t="0:12"><i>บทที่ 3</i>วิ่งตามเส้น และวิ่งตามเส้นจนครบรอบ</button>
+      <button type="button" data-vt data-t="0:55"><i>บทที่ 4</i>วิ่งหลบสิ่งกีดขวางโดยใช้ปุ่ม และอัตโนมัติ</button>
     </div>
 
-    <h3 class="sub-h" style="margin-top:34px">เว็บไซต์ ROBOCART LEARNING CENTER</h3>
+    <h3 class="sub-h" style="margin-top:34px"><span class="sh-ic" aria-hidden="true">🌐</span>เว็บไซต์ ROBOCART LEARNING CENTER</h3>
     <div class="browser">
       <div class="br-bar"><i></i><i></i><i></i><span>edu-robocart.github.io/learning</span><a href="https://edu-robocart.github.io/learning/" target="_blank" rel="noopener">เปิดแท็บใหม่ ↗</a></div>
       <a class="br-shot" href="https://edu-robocart.github.io/learning/" target="_blank" rel="noopener">
@@ -2300,7 +2315,21 @@ window.__initRobocartModel = function () {
       var mt=el("div","motes"); mt.setAttribute("aria-hidden","true");
       for(var m=0;m<40;m++){ var mo=el("span","mote"); mo.style.left=((m*37)%100)+"%"; mo.style.top=((m*53)%100)+"%"; mo.style.setProperty("--s",(3+(m%4)*2)+"px"); mo.style.setProperty("--d",(10+(m*7)%14)+"s"); mo.style.animationDelay=(-(m%9))+"s"; mt.appendChild(mo); }
       body.appendChild(mt); }
-    if(r.theme==="class"){ var bm2=el("div","beams"); bm2.setAttribute("aria-hidden","true"); bm2.innerHTML="<i></i><i></i>"; body.appendChild(bm2); }
+    if(r.theme==="class"){ var bm2=el("div","beams"); bm2.setAttribute("aria-hidden","true"); bm2.innerHTML="<i></i><i></i>"; body.appendChild(bm2);
+      /* จิ๊กซอว์ลอยไปมา: แก้จำนวนที่ JIG_N และสีที่ JIG_C */
+      var JIG_N=9, JIG_C=["#ffffff"];
+      var JIG_P="M20 30H40a10 10 0 1 1 20 0H80V50a10 10 0 1 1 0 20V90H60a10 10 0 1 0-20 0H20V70a10 10 0 1 0 0-20Z";
+      var jg=el("div","jigs"); jg.setAttribute("aria-hidden","true");
+      for(var q3=0;q3<JIG_N;q3++){ var jp=el("span","jig"+(q3%2?" rev":"")), cc=JIG_C[q3%JIG_C.length];
+        jp.innerHTML='<svg viewBox="0 0 100 100"><path d="'+JIG_P+'" fill="'+cc+'" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linejoin="round"/></svg>';
+        jp.style.left=((q3*41+3)%94)+"%"; jp.style.top=(4+q3*(92/JIG_N))+"%";
+        jp.style.setProperty("--s",(60+(q3*17)%70)+"px"); jp.style.setProperty("--o",(.35+((q3*13)%20)/100).toFixed(2));
+        jp.style.setProperty("--d",(14+(q3*5)%14)+"s"); jp.style.setProperty("--r",(20+(q3*7)%30)+"s"); jp.style.setProperty("--dl",(-(q3%7)*2)+"s");
+        jp.style.setProperty("--x1",(((q3*23)%90)-45)+"px"); jp.style.setProperty("--y1",(-20-(q3*11)%60)+"px");
+        jp.style.setProperty("--x2",(((q3*31)%80)-40)+"px"); jp.style.setProperty("--y2",(10-(q3*7)%50)+"px");
+        jp.style.setProperty("--x3",(((q3*19)%100)-50)+"px"); jp.style.setProperty("--y3",(-40-(q3*13)%70)+"px");
+        jg.appendChild(jp); }
+      body.appendChild(jg); }
     if((r.theme||"sky")==="sky"){ var spk=el("div","sparks"); spk.setAttribute("aria-hidden","true");
       for(var q2=0;q2<26;q2++){ var sk=el("i"); sk.style.left=((q2*37+11)%97)+"%"; sk.style.top=((q2*23+4)%96)+"%"; sk.style.setProperty("--s",(5+(q2%4)*3)+"px"); sk.style.setProperty("--d",(2+(q2%5)*.8)+"s"); sk.style.animationDelay=(-(q2%6)*.5)+"s"; spk.appendChild(sk); }
       body.appendChild(spk); }
@@ -2422,7 +2451,7 @@ window.__initRobocartModel = function () {
   document.addEventListener("click",function(e){
     var b=e.target.closest&&e.target.closest("[data-vt]"); if(!b) return;
     var f=document.getElementById("demo-frame"); if(!f) return;
-    var t=Math.max(0,parseInt(b.dataset.t,10)||0);
+    var t=String(b.dataset.t||"0").split(":").reduce(function(a,x){ return a*60+(parseFloat(x)||0); },0); t=Math.max(0,Math.floor(t));
     f.src="https://www.youtube.com/embed/QsttLofJ2HQ?rel=0&start="+t+"&autoplay=1";
     $$("[data-vt]").forEach(function(x){ x.classList.toggle("on",x===b); });
   });
