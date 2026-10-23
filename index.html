@@ -121,6 +121,7 @@ button{font:inherit;color:inherit}
 .play{position:absolute;left:50%;top:50%;translate:-50% -50%;width:88px;height:88px;border-radius:50%;background:var(--coral);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(255,107,83,.35)}
 .play::after{content:"";margin-left:6px;border-left:26px solid #fff;border-block:16px solid transparent}
 .video .cap{position:absolute;left:16px;right:16px;bottom:12px;font-family:var(--font-display);font-size:15px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video[aria-disabled="true"]{cursor:default}
 .video[aria-disabled="true"] .play{background:#7d4a6a;box-shadow:0 0 0 10px rgba(255,244,228,.14)}
 .steps{display:grid;gap:10px;margin:0;padding:0;list-style:none}
@@ -923,11 +924,7 @@ button{font:inherit;color:inherit}
       <!-- video -->
       <div class="panel" id="m-video">
         <div class="ph"><div><span class="tag">MODULE 01 · VIDEO</span><h2>ทำความรู้จักกับโครงงาน</h2></div></div>
-        <a class="video" id="yt" href="#" target="_blank" rel="noopener" aria-disabled="true">
-          <img src="assets/banner.webp" alt="" loading="lazy">
-          <span class="shade"></span><span class="play" aria-hidden="true"></span>
-          <span class="cap" id="ytcap">คลิปแนะนำโครงงานกำลังจัดทำ</span>
-        </a>
+        <div class="video" id="yt"><iframe src="https://www.youtube.com/embed/_V3IWPF05l0?rel=0" title="คลิปแนะนำโครงงาน ROBOCART" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
       </div>
 
       <!-- steps -->
@@ -2395,8 +2392,8 @@ window.__initRobocartModel = function () {
 
   /* ---------- youtube card ---------- */
   var yt=$("#yt"), cap=$("#ytcap");
-  if(YOUTUBE_URL){ yt.href=YOUTUBE_URL; yt.removeAttribute("aria-disabled"); cap.textContent="ดูคลิปแนะนำโครงงานบน YouTube"; }
-  else yt.addEventListener("click",function(e){ e.preventDefault(); });
+  if(yt&&cap){ if(YOUTUBE_URL){ yt.href=YOUTUBE_URL; yt.removeAttribute("aria-disabled"); cap.textContent="ดูคลิปแนะนำโครงงานบน YouTube"; }
+  else yt.addEventListener("click",function(e){ e.preventDefault(); }); }
 
   /* ---------- นับเลขขึ้น ---------- */
   function countUp(root){
