@@ -125,11 +125,9 @@ button{font:inherit;color:inherit}
 .vchaps{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:16px}
 .vchaps button{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-family:var(--font-display);font-size:15px;line-height:1.4;color:#2a1030;background:#fff4e4;border:1px solid #f1d9bd;border-radius:99px;padding:8px 18px 8px 8px;box-shadow:0 3px 0 rgba(184,64,30,.25);transition:transform .15s,box-shadow .15s,background .15s}
 .vchaps button i{font-style:normal;font-size:13px;padding:3px 12px;border-radius:99px;background:linear-gradient(135deg,#ffc24d,#ff8a4c);color:#2a1030}
-.vchaps button small{font-family:var(--font-mono);font-size:12px;opacity:.65}
 .vchaps button:hover{transform:translateY(-2px);background:#ffe3b0;box-shadow:0 5px 0 rgba(184,64,30,.25)}
 .vchaps button:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(184,64,30,.25)}
 .vchaps button.on{background:linear-gradient(135deg,#6e2f63,#a42f6d);color:#fff;border-color:#a42f6d}
-.vchaps button.on small{opacity:.85}
 .video[aria-disabled="true"]{cursor:default}
 .video[aria-disabled="true"] .play{background:#7d4a6a;box-shadow:0 0 0 10px rgba(255,244,228,.14)}
 .steps{display:grid;gap:10px;margin:0;padding:0;list-style:none}
@@ -788,6 +786,10 @@ button{font:inherit;color:inherit}
 .content::before{content:"";position:absolute;left:0;right:0;top:0;height:240px;z-index:-2;pointer-events:none;background:linear-gradient(180deg,#8f2f17 0%,#b9532c 14%,#e08a5c 36%,#f8c9a4 60%,#fdebd6 82%,#fff 100%)}
 .content::after{content:"";position:absolute;left:0;right:0;bottom:0;height:200px;z-index:-2;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0),#fff)}
 .homefx{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 240px,#000 calc(100% - 260px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 240px,#000 calc(100% - 260px),transparent 100%)}
+.content{background:linear-gradient(180deg,#fff 0,#fff8ef 22%,#fff1f3 48%,#f7f1ff 72%,#fff 100%)}
+.homefx .aurora{opacity:.7}
+.homefx .aurora i{filter:blur(40px)}
+.homefx .bokeh span{mix-blend-mode:normal}
 .homefx .blob{position:absolute;width:var(--s,420px);aspect-ratio:1;border-radius:50%;filter:blur(60px);opacity:.5;animation:blobM var(--d,26s) ease-in-out infinite alternate}
 @keyframes blobM{0%{translate:0 0;scale:1}50%{translate:80px -60px;scale:1.15}100%{translate:-60px 50px;scale:.9}}
 .homefx .sh{position:absolute;font-family:"Prompt",var(--font-display);font-weight:700;color:var(--c,#ffc24d);opacity:.4;animation:shF var(--d,14s) ease-in-out infinite alternate}
@@ -1472,9 +1474,9 @@ button{font:inherit;color:inherit}
       <div class="video vid-demo" id="demo-video"><iframe id="demo-frame" src="https://www.youtube.com/embed/QsttLofJ2HQ?rel=0" title="ตัวอย่างการเคลื่อนไหวของหุ่นยนต์ ROBOCART" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
     <!-- data-t = วินาทีที่คลิปจะข้ามไป (บทที่ 2 = 0:00, บทที่ 3 = 0:13, บทที่ 4 = 0:55) -->
     <div class="vchaps" role="group" aria-label="ข้ามไปยังส่วนต่างๆ ของคลิป">
-      <button type="button" data-vt data-t="0"><i>บทที่ 2</i>การเคลื่อนที่ <small>00:00</small></button>
-      <button type="button" data-vt data-t="13"><i>บทที่ 3</i>วิ่งตามเส้น และวิ่งตามเส้นจนครบรอบ <small>00:13</small></button>
-      <button type="button" data-vt data-t="55"><i>บทที่ 4</i>วิ่งหลบสิ่งกีดขวางโดยใช้ปุ่ม และอัตโนมัติ <small>00:55</small></button>
+      <button type="button" data-vt data-t="0"><i>บทที่ 2</i>การเคลื่อนที่</button>
+      <button type="button" data-vt data-t="13"><i>บทที่ 3</i>วิ่งตามเส้น และวิ่งตามเส้นจนครบรอบ</button>
+      <button type="button" data-vt data-t="55"><i>บทที่ 4</i>วิ่งหลบสิ่งกีดขวางโดยใช้ปุ่ม และอัตโนมัติ</button>
     </div>
       </div>
     </div>
@@ -2637,11 +2639,22 @@ window.__initRobocartModel = function () {
     setTimeout(function(){ $$(".rv").forEach(function(e){ e.style.transitionDelay=""; }); },4000);
   } else { $$(".chap.themed .box").forEach(function(e){ e.classList.add("rv","in"); }); countUp(document); }
 
-  /* ---------- พื้นหลังขยับหน้าแรก ---------- */
+  /* ---------- พื้นหลังขยับหน้าแรก: ออโรร่าโทนอบอุ่น + ฟองลอย + แสงโบเก้ + ประกายดาว (ไม่มีตัวอักษร/เครื่องหมาย) ---------- */
   (function(){ var ct=$(".content"); if(!ct) return; var fx=el("div","homefx"); fx.setAttribute("aria-hidden","true");
-    [["#ffd479","540px","4%","-6%","28s"],["#ffb3a4","460px","60%","18%","32s"],["#9fe3f5","500px","10%","52%","30s"],["#d9c2ff","420px","66%","72%","26s"]].forEach(function(b){ var d=el("span","blob"); d.style.background=b[0]; d.style.setProperty("--s",b[1]); d.style.left=b[2]; d.style.top=b[3]; d.style.setProperty("--d",b[4]); fx.appendChild(d); });
-    var sy=["+","○","△","□","</>","✦","⚙","{ }"], co=["#ffb703","#ff6b53","#00b4d8","#8b5cf6","#10b981"];
-    for(var i=0;i<26;i++){ var t=el("span","sh",sy[i%sy.length]); t.style.left=((i*37+5)%96)+"%"; t.style.top=((i*29+3)%98)+"%"; t.style.fontSize=(18+(i%4)*10)+"px"; t.style.setProperty("--c",co[i%co.length]); t.style.setProperty("--d",(10+(i*3)%10)+"s"); t.style.animationDelay=(-(i%8))+"s"; fx.appendChild(t); }
+    var au=el("div","aurora"), auc=["#ffd479","#ffb3a4","#f9a8d4","#c4b5fd","#fdba74","#a5f3fc"];
+    for(var ai=0;ai<16;ai++){ var b=el("i"); b.style.setProperty("--c",auc[ai%auc.length]); b.style.setProperty("--s",(440+(ai*53)%220)+"px");
+      b.style.left=((ai%2?58:-12)+(ai*13)%22)+"%"; b.style.top=(ai*6.2-2)+"%"; b.style.setProperty("--d",(22+(ai*3)%12)+"s"); b.style.setProperty("--dl",(-ai*2.5)+"s");
+      b.style.setProperty("--x1",((ai%2?-1:1)*(90+ai*12))+"px"); b.style.setProperty("--y1",(-60-ai*6)+"px"); b.style.setProperty("--x2",((ai%2?1:-1)*(80+ai*9))+"px"); b.style.setProperty("--y2",(50+ai*8)+"px"); au.appendChild(b); }
+    fx.appendChild(au);
+    var bu=el("div","bubbles"), buc=["rgba(255,200,120,.38)","rgba(255,170,190,.36)","rgba(196,181,253,.34)","rgba(165,243,252,.36)"];
+    for(var q=0;q<44;q++){ var bb=el("span"); bb.style.left=((q*53+4)%96)+"%"; bb.style.top=(3+q*(94/44))+"%"; bb.style.setProperty("--c",buc[q%4]); bb.style.setProperty("--s",(10+(q*7)%26)+"px"); bb.style.setProperty("--d",(9+(q*5)%8)+"s"); bb.style.setProperty("--dl",(-(q*1.7))+"s"); bb.style.setProperty("--sw",(((q*29)%80)-40)+"px"); bu.appendChild(bb); }
+    fx.appendChild(bu);
+    var bk=el("div","bokeh"), bkc=["rgba(255,214,150,.6)","rgba(255,180,200,.5)","rgba(220,190,255,.5)"];
+    for(var k=0;k<22;k++){ var bs=el("span"); bs.style.left=((k*41+3)%96)+"%"; bs.style.top=(4+k*(92/22))+"%"; bs.style.setProperty("--s",(20+(k*13)%46)+"px"); bs.style.setProperty("--b",((k%3)*1.5)+"px"); bs.style.setProperty("--c",bkc[k%3]); bs.style.setProperty("--d",(11+(k*7)%10)+"s"); bs.style.setProperty("--dl",(-(k*1.9))+"s"); bs.style.setProperty("--sw",(((k*31)%80)-40)+"px"); bk.appendChild(bs); }
+    fx.appendChild(bk);
+    var tk=el("div","twinkle"), tkc=["#ffc24d","#ff9aa8","#a78bfa","#5eead4","#fb923c"];
+    for(var t=0;t<50;t++){ var ti=el("i"); ti.style.left=((t*37+9)%97)+"%"; ti.style.top=((t*23+5)%96)+"%"; ti.style.setProperty("--s",(8+(t%4)*5)+"px"); ti.style.setProperty("--c",tkc[t%tkc.length]); ti.style.setProperty("--d",(2.4+(t%5)*.7)+"s"); ti.style.setProperty("--dl",(-(t%7)*.45)+"s"); tk.appendChild(ti); }
+    fx.appendChild(tk);
     ct.insertBefore(fx,ct.firstChild); })();
 
   /* ---------- ดาวและหินในโซนดาวเคราะห์ ---------- */
