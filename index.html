@@ -368,9 +368,15 @@ button{font:inherit;color:inherit}
 .isec .duo:has(.tool){grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 .plan{border-radius:20px;padding:20px 22px;background:#fff8ee;border:1px solid #f2e2cc}
 .plan p{font-size:17px}
-.months{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px}
-.months span{text-align:center;font-family:var(--font-display);padding:10px 6px;color:#fff;background:linear-gradient(90deg,var(--coral),var(--amber));border-radius:10px}
-.months span:first-child{border-radius:99px 10px 10px 99px}.months span:last-child{border-radius:10px 99px 99px 10px}
+.months{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:22px;padding:4px 0}
+.months::before{content:"";position:absolute;left:calc(100%/6);right:calc(100%/6);top:23px;height:6px;border-radius:99px;background:linear-gradient(90deg,#ff6b53,#ffc24d,#ff6b53);background-size:200% 100%;animation:flow 6s linear infinite}
+.months span{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.months i{font-style:normal;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;font-family:"Prompt",var(--font-display);font-weight:700;font-size:18px;color:#fff;background:linear-gradient(135deg,#ff8a4c,#ff6b53);box-shadow:0 0 0 6px #fff,0 8px 18px rgba(255,107,83,.35)}
+.months span:nth-child(2) i{background:linear-gradient(135deg,#ffb347,#ff8a4c)}
+.months span:nth-child(3) i{background:linear-gradient(135deg,#ffd166,#f59e0b)}
+.months b{font-family:var(--font-display);font-weight:500;font-size:16px;color:var(--ink);padding:6px 18px;border-radius:99px;background:#fff4e4;border:1px solid #f9d9b5;white-space:nowrap}
+.months small{display:block;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;color:#b8401e;margin-top:-4px}
+@media (max-width:560px){.months{gap:4px}.months b{font-size:14px;padding:5px 10px}.months i{width:38px;height:38px;font-size:16px}.months::before{top:21px}}
 .fold{border-radius:20px;border:1px solid #eadfd3;background:#fff}
 .fold summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;font-family:var(--font-display);font-size:17px;border-radius:20px;background:#f0f9ff}
 .fold summary::-webkit-details-marker{display:none}
@@ -388,7 +394,7 @@ button{font:inherit;color:inherit}
 .chap.th-sky .chap-banner{background:#9dd6e7}
 .chap.th-sky .chap-body{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(180deg,#d2efee 0%,#bfe7f1 18%,#a9dcee 55%,#94d1ea 100%)}
 .clouds{position:absolute;inset:0;z-index:-1;pointer-events:none}
-.cloud{position:absolute;display:block;aspect-ratio:2/1;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cpath d='M28 92h146a22 22 0 0 0 2-44 30 30 0 0 0-48-24 40 40 0 0 0-74 14 28 28 0 0 0-26 54z' fill='%23fdfdff'/%3E%3Cpath d='M28 92h146a22 22 0 0 0 20-14H8a28 28 0 0 0 20 14z' fill='%23e4e3f3'/%3E%3Cpath d='M70 30a30 30 0 0 1 40-8' stroke='%23fff' stroke-width='5' fill='none' stroke-linecap='round' opacity='.9'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 8px 10px rgba(60,120,160,.12));animation:drift var(--d,60s) ease-in-out infinite alternate}
+.cloud{position:absolute;display:block;aspect-ratio:2/1;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cpath d='M28 92h146a22 22 0 0 0 2-44 30 30 0 0 0-48-24 40 40 0 0 0-74 14 28 28 0 0 0-26 54z' fill='%23fdfdff'/%3E%3Cpath d='M70 30a30 30 0 0 1 40-8' stroke='%23fff' stroke-width='5' fill='none' stroke-linecap='round' opacity='.9'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 8px 10px rgba(60,120,160,.12));animation:drift var(--d,60s) ease-in-out infinite alternate}
 .cloud.mirror{transform:scaleX(-1)}
 @keyframes drift{from{translate:-30px 0}to{translate:40px 0}}
 .chap.themed .chap-body .wrap{position:relative}
@@ -432,7 +438,7 @@ button{font:inherit;color:inherit}
 .chap.themed .tbl tbody tr:hover td{background:#fff6dc}
 
 /* แผนงาน: แถบเดือนวิ่ง */
-.chap.themed .months span{background:linear-gradient(90deg,#ff6b53,#ffc24d,#ff6b53);background-size:200% 100%;animation:flow 6s linear infinite}
+
 @keyframes flow{to{background-position:-200% 0}}
 
 /* ค่อยๆ ปรากฏเมื่อเลื่อนถึง */
@@ -886,6 +892,13 @@ button{font:inherit;color:inherit}
 .rw-sub .rw-tx small{color:#0f766e}
 .rw-sub .rw-tx span{font-family:var(--font-display);font-weight:500;font-size:clamp(16px,1.9vw,19px)}
 @media (max-width:560px){.rw-head{padding:12px 14px;gap:10px}.rw-ic{width:42px;height:42px;font-size:22px;border-radius:13px}.rw-jig{width:80px;height:80px}.rw-panel{border-radius:22px}}
+/* ---------- ประโยชน์ที่คาดว่าจะได้รับ (บทนำ) ---------- */
+.ben{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.chap-main .ben li{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:24px 22px 24px;border-radius:24px;overflow:hidden}
+.ben-n{position:absolute;right:14px;top:8px;font-family:"Prompt",var(--font-display);font-weight:700;font-size:58px;line-height:1;color:var(--c2);opacity:.13;pointer-events:none}
+.ben-k{font-family:var(--font-display);font-size:14px;padding:3px 14px;border-radius:99px;color:var(--c2);background:color-mix(in srgb,var(--c1) 18%,#fff);border:1px solid color-mix(in srgb,var(--c1) 45%,#fff)}
+.ben p{font-size:16px;line-height:1.75;color:#24384a}
+@media (max-width:900px){.ben{grid-template-columns:minmax(0,1fr)}.chap-main .ben li{padding:26px 20px 20px}}
 /* ---------- จิ๊กซอว์ลอย: พื้นหลังหน้าผลการพัฒนา ---------- */
 .jigs{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .jig{position:absolute;width:var(--s,70px);aspect-ratio:1;opacity:var(--o,.45);animation:jigF var(--d,18s) ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
@@ -1183,18 +1196,28 @@ button{font:inherit;color:inherit}
     </div>
   </section>
 
-  <!-- 5 แผนการดำเนินงาน -->
+  <!-- 5 ประโยชน์ที่คาดว่าจะได้รับ -->
+  <section class="isec" id="intro-benefit" data-sec="ประโยชน์ที่คาดว่าจะได้รับ">
+    <h2 class="ih"><b>5</b>ประโยชน์ที่คาดว่าจะได้รับ</h2>
+    <ol class="ben">
+      <li class="box" style="--c1:#ffc24d;--c2:#ff8a4c"><span class="ben-n" aria-hidden="true">01</span><span class="ben-k">ต้นแบบนวัตกรรม</span><p>ได้ต้นแบบรูปแบบการจัดการเรียนรู้ ROBOCART พร้อมสื่อและระบบตรวจโค้ดอัตโนมัติที่มีคุณภาพ นำไปใช้จัดการเรียนรู้ได้อย่างมีประสิทธิภาพ</p></li>
+      <li class="box" style="--c1:#2dd4bf;--c2:#0f9d8a"><span class="ben-n" aria-hidden="true">02</span><span class="ben-k">ผู้เรียน</span><p>ผู้เรียนได้รับการพัฒนาทักษะการเขียนโปรแกรม การคิดเชิงคำนวณ การแก้ปัญหาอย่างเป็นระบบ และการทำงานร่วมกันผ่านการปฏิบัติจริง</p></li>
+      <li class="box" style="--c1:#60a5fa;--c2:#0077b6"><span class="ben-n" aria-hidden="true">03</span><span class="ben-k">ครูและผู้สนใจ</span><p>เป็นแนวทางให้ครูและผู้สนใจนำไปประยุกต์ใช้ หรือต่อยอดพัฒนานวัตกรรมการสอนวิทยาการคำนวณในอนาคต</p></li>
+    </ol>
+  </section>
+
+  <!-- 6 แผนการดำเนินงาน -->
   <section class="isec" id="intro-plan" data-sec="แผนการดำเนินงาน">
-    <h2 class="ih"><b>5</b>แผนการดำเนินงาน</h2>
+    <h2 class="ih"><b>6</b>แผนการดำเนินงาน</h2>
     <div class="plan">
       <p>ระยะเวลาการดำเนินงานตั้งแต่เดือน <strong>สิงหาคม - ตุลาคม พ.ศ. 2569</strong></p>
-      <div class="months" aria-hidden="true"><span>ส.ค. 2569</span><span>ก.ย. 2569</span><span>ต.ค. 2569</span></div>
+      <div class="months" aria-hidden="true"><span><i>1</i><b>ส.ค. 2569</b><small>เดือนที่ 1</small></span><span><i>2</i><b>ก.ย. 2569</b><small>เดือนที่ 2</small></span><span><i>3</i><b>ต.ค. 2569</b><small>เดือนที่ 3</small></span></div>
     </div>
   </section>
 
-  <!-- 6 กรอบแนวคิด (ย่อ/ขยายได้) -->
+  <!-- 7 กรอบแนวคิด (ย่อ/ขยายได้) -->
   <section class="isec" id="intro-frame" data-sec="กรอบแนวคิดการวิจัย">
-    <h2 class="ih"><b>6</b>กรอบแนวคิดการวิจัย</h2>
+    <h2 class="ih"><b>7</b>กรอบแนวคิดการวิจัย</h2>
     <details class="fold" open>
       <summary><span>แผนภาพกรอบแนวคิดการวิจัย</span><em class="fold-t"></em></summary>
       <button class="shot frame" type="button" data-zoom="assets/framework.webp" data-alt="แผนภาพกรอบแนวคิดการวิจัย ROBOCART" aria-label="ขยายภาพกรอบแนวคิดการวิจัย">
