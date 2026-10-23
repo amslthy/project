@@ -707,6 +707,8 @@ button{font:inherit;color:inherit}
 .flip{border-radius:22px;overflow:hidden;background:#0f1236;outline:none;box-shadow:0 24px 60px rgba(5,8,40,.5),0 0 0 2px rgba(95,240,255,.45),0 0 40px rgba(95,240,255,.22)}
 .flip:focus-visible{box-shadow:0 0 0 4px var(--amber),0 24px 60px rgba(5,8,40,.5)}
 .flip:fullscreen{border-radius:0;display:flex;flex-direction:column}
+.flip .book-embed{display:block;width:100%;height:min(86vh,980px);border:0;background:#fff}
+.flip:fullscreen .book-embed{height:calc(100vh - 64px)}
 .fl-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(90deg,#1e2a78,#3b3f9f);color:#fff}
 .fl-bar .pdf-t{display:flex;align-items:center;gap:10px;margin-right:auto;font-family:var(--font-display);font-size:16px}
 .fl-bar .pdf-t i{font-style:normal;font-family:var(--font-mono);font-size:12px;padding:3px 10px;border-radius:99px;background:#ff5a5a}
@@ -1529,30 +1531,15 @@ button{font:inherit;color:inherit}
 <template id="tpl-book">
   <section class="isec" id="book-pdf" data-sec="เล่มประกอบโครงงาน">
     <h2 class="ih"><b>📘</b>เล่มประกอบโครงงาน</h2>
-    <p class="sub-p" style="margin-bottom:16px">กดลูกศรซ้าย–ขวา ปัดหน้าจอ หรือใช้ปุ่มลูกศรบนคีย์บอร์ดเพื่อเปลี่ยนหน้า · เลือกบทเพื่อข้ามไปได้ทันที</p>
-    <div class="flip" id="flip-book" data-dir="assets/book" data-n="110" tabindex="0" aria-label="เล่มประกอบโครงงาน 110 หน้า">
+    <p class="sub-p" style="margin-bottom:16px">อ่านเล่มโครงงานฉบับสมบูรณ์ได้ที่นี่ · เลื่อนอ่านทีละหน้า หรือกดเต็มจอเพื่ออ่านสะดวกขึ้น</p>
+    <div class="flip" id="flip-book" aria-label="เล่มประกอบโครงงาน">
       <div class="fl-bar">
-        <span class="pdf-t"><i>PDF</i>โครงงาน.pdf <small>· 110 หน้า</small></span>
+        <span class="pdf-t"><i>PDF</i>เล่มโครงงาน</span>
         <button class="pdf-btn" type="button" data-fs="flip-book">⛶ เต็มจอ</button>
-        <a class="pdf-btn" href="https://drive.google.com/file/d/1hIjPWG-PfzUvEXWk_JqoCQ2vvx5zUqdO/view?usp=sharing" target="_blank" rel="noopener">Google Drive ↗</a>
-        <a class="pdf-btn hot" href="https://drive.google.com/uc?export=download&amp;id=1hIjPWG-PfzUvEXWk_JqoCQ2vvx5zUqdO" target="_blank" rel="noopener">⬇ ดาวน์โหลด</a>
+        <a class="pdf-btn" href="https://drive.google.com/file/d/1DwA2SXQlfxECenlptTBkSiXvCt7zgTCR/view?usp=sharing" target="_blank" rel="noopener">Google Drive ↗</a>
+        <a class="pdf-btn hot" href="https://drive.google.com/uc?export=download&amp;id=1DwA2SXQlfxECenlptTBkSiXvCt7zgTCR" target="_blank" rel="noopener">⬇ ดาวน์โหลด</a>
       </div>
-      <div class="fl-toc">
-        <button type="button" data-page="1">ปก</button><button type="button" data-page="3">บทคัดย่อ</button><button type="button" data-page="2">กิตติกรรมประกาศ</button><button type="button" data-page="4">สารบัญ</button>
-        <button type="button" data-page="8">บทที่ 1</button><button type="button" data-page="15">บทที่ 2</button><button type="button" data-page="27">บทที่ 3</button><button type="button" data-page="54">บทที่ 4</button><button type="button" data-page="70">บทที่ 5</button>
-        <button type="button" data-page="77">บรรณานุกรม</button><button type="button" data-page="79">ภาคผนวก</button>
-      </div>
-      <div class="fl-stage">
-        <button class="fl-nav prev" type="button" aria-label="หน้าก่อนหน้า">‹</button>
-        <div class="fl-page"><img alt="" draggable="false"></div>
-        <button class="fl-nav next" type="button" aria-label="หน้าถัดไป">›</button>
-      </div>
-      <div class="fl-foot">
-        <button class="fl-step" type="button" data-step="-10" aria-label="ย้อน 10 หน้า">«</button>
-        <input class="fl-range" type="range" min="1" value="1" aria-label="เลือกหน้า">
-        <button class="fl-step" type="button" data-step="10" aria-label="ไปอีก 10 หน้า">»</button>
-        <span class="fl-num">หน้า <input class="fl-in" type="number" min="1" value="1" aria-label="เลขหน้า"> / <b class="fl-tot"></b></span>
-      </div>
+      <iframe class="book-embed" src="https://drive.google.com/file/d/1DwA2SXQlfxECenlptTBkSiXvCt7zgTCR/preview" title="เล่มโครงงานการพัฒนารูปแบบการจัดการเรียนรู้โดยใช้หุ่นยนต์ช่วยสอน" loading="lazy" allow="fullscreen"></iframe>
     </div>
   </section>
 </template>
