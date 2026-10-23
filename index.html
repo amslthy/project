@@ -902,6 +902,51 @@ button{font:inherit;color:inherit}
 .jig.rev svg{animation-direction:reverse}
 @keyframes jigF{0%{translate:0 0}33%{translate:var(--x1,40px) var(--y1,-50px)}66%{translate:var(--x2,-30px) var(--y2,-20px)}100%{translate:var(--x3,20px) var(--y3,-80px)}}
 @keyframes jigSpin{to{rotate:360deg}}
+/* ---------- พื้นหลังผลการพัฒนา: ออโรร่า + จิ๊กซอว์สี + ประกาย + ฟองลอย ---------- */
+.chap.th-class .chap-body{background:linear-gradient(160deg,#d9fbe9 0%,#c6f3ef 22%,#cdeefe 48%,#e6f0ff 70%,#fff4df 100%);background-size:200% 200%;animation:clsBg 24s ease-in-out infinite alternate}
+@keyframes clsBg{0%{background-position:0% 0%}100%{background-position:100% 100%}}
+.chap.th-class .chap-body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(15,118,110,.13) 1.4px,transparent 1.6px);background-size:26px 26px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%);animation:clsDots 40s linear infinite}
+@keyframes clsDots{to{background-position:260px 260px}}
+.aurora{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.aurora i{position:absolute;width:var(--s,520px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 40%,var(--c) 0%,transparent 68%);opacity:.9;filter:blur(24px);animation:auroraM var(--d,22s) ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+@keyframes auroraM{0%{translate:0 0;scale:1}33%{translate:var(--x1,120px) var(--y1,-80px);scale:1.18}66%{translate:var(--x2,-90px) var(--y2,60px);scale:.92}100%{translate:var(--x3,60px) var(--y3,120px);scale:1.08}}
+.bubbles{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bubbles span{position:absolute;width:var(--s,18px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.95),rgba(255,255,255,.45) 40%,var(--c,rgba(94,234,212,.25)) 75%);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.85),0 6px 16px rgba(20,140,130,.15);animation:bubUp var(--d,10s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes bubUp{0%{transform:translate(0,40px) scale(.6);opacity:0}15%{opacity:.95}50%{transform:translate(var(--sw,24px),-140px) scale(1)}85%{opacity:.85}100%{transform:translate(0,-320px) scale(.9);opacity:0}}
+.twinkle{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.twinkle i{position:absolute;width:var(--s,12px);aspect-ratio:1;background:var(--c,#fff);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);filter:drop-shadow(0 0 6px rgba(255,255,255,.9));animation:twk var(--d,3s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes twk{0%,100%{transform:scale(.3) rotate(0deg);opacity:.2}50%{transform:scale(1) rotate(90deg);opacity:1}}
+.chap.th-class .jig svg{filter:drop-shadow(0 10px 18px rgba(15,90,80,.18))}
+
+/* ---------- พื้นหลังวิธีการดำเนินการ: ไล่สีพระอาทิตย์ตก + แสงโบเก้ + เฟือง ---------- */
+.chap.th-room .chap-body{background:linear-gradient(180deg,#3f1a52 0%,#6e2f63 12%,#a8506a 30%,#e0806a 52%,#f6b98a 74%,#fde3b8 100%);background-size:100% 140%;animation:roomBg 18s ease-in-out infinite alternate}
+@keyframes roomBg{to{background-position:0 100%}}
+.chap.th-room .aurora i{opacity:.55;filter:blur(36px);mix-blend-mode:screen}
+.bokeh{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bokeh span{position:absolute;width:var(--s,40px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--c,rgba(255,230,180,.55)) 0%,rgba(255,230,180,.18) 55%,transparent 72%);box-shadow:0 0 0 1px rgba(255,240,215,.22);filter:blur(var(--b,1px));animation:bokehF var(--d,14s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes bokehF{0%{transform:translate(0,30px) scale(.7);opacity:0}20%{opacity:.95}50%{transform:translate(var(--sw,30px),-90px) scale(1.05)}80%{opacity:.8}100%{transform:translate(0,-220px) scale(.85);opacity:0}}
+.gears{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.gears svg{position:absolute;width:var(--s,180px);height:var(--s,180px);opacity:var(--o,.18);animation:gearR var(--d,30s) linear infinite}
+.gears svg.rev{animation-direction:reverse}
+@keyframes gearR{to{rotate:360deg}}
+
+/* ---------- พื้นหลังสรุปและอภิปรายผล: ท้องฟ้าดาวอังคาร ---------- */
+.chap.th-mars .chap-body{background:linear-gradient(180deg,#2a1450 0%,#4c2a8a 10%,#7c5bb5 26%,#a37cc8 44%,#d97a96 64%,#c4423f 84%,#7d1d2a 100%);background-size:100% 130%;animation:roomBg 20s ease-in-out infinite alternate}
+.chap.th-mars .aurora i{opacity:.5;filter:blur(40px);mix-blend-mode:screen}
+.stars b{background:linear-gradient(135deg,#b4536a,#5a1626 70%);box-shadow:inset -3px -3px 0 rgba(0,0,0,.18);opacity:.7;animation:rock2 var(--d,12s) ease-in-out infinite alternate}
+@keyframes rock2{0%{translate:0 0;rotate:0deg}50%{translate:30px -50px;rotate:180deg}100%{translate:-20px -90px;rotate:340deg}}
+.shoot{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.shoot i{position:absolute;width:180px;height:2px;border-radius:99px;background:linear-gradient(90deg,rgba(255,255,255,0),#fff 80%,#fff);filter:drop-shadow(0 0 6px #fff);transform:rotate(-28deg);opacity:0;animation:shootS var(--d,8s) linear infinite;animation-delay:var(--dl,0s)}
+@keyframes shootS{0%{opacity:0;translate:0 0}4%{opacity:1}14%{opacity:0;translate:-560px 300px}100%{opacity:0;translate:-560px 300px}}
+.planet-x{position:absolute;z-index:-1;pointer-events:none;width:var(--s,240px);aspect-ratio:1;animation:plFloat var(--d,16s) ease-in-out infinite alternate}
+.planet-x::before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 32% 28%,var(--c1,#ffd1dc) 0%,var(--c2,#e07b9a) 45%,var(--c3,#7a2f5c) 100%);box-shadow:0 0 60px var(--g,rgba(255,170,200,.45)),inset -18px -14px 40px rgba(40,0,40,.35)}
+.planet-x::after{content:"";position:absolute;left:-28%;right:-28%;top:42%;height:16%;border-radius:50%;border:5px solid rgba(255,230,240,.55);border-top-color:rgba(255,230,240,.15);transform:rotate(-16deg);animation:ringW 9s ease-in-out infinite alternate}
+@keyframes plFloat{0%{translate:0 0;rotate:-4deg}100%{translate:-26px 34px;rotate:6deg}}
+@keyframes ringW{to{transform:rotate(-8deg) scaleX(1.05)}}
+.embers{position:absolute;left:0;right:0;bottom:0;height:45%;z-index:-1;pointer-events:none;overflow:hidden}
+.embers i{position:absolute;bottom:-10px;width:var(--s,5px);aspect-ratio:1;border-radius:50%;background:#ffd08a;box-shadow:0 0 8px 2px rgba(255,150,80,.8);animation:emberU var(--d,9s) linear infinite;animation-delay:var(--dl,0s)}
+@keyframes emberU{0%{transform:translate(0,0);opacity:0}10%{opacity:1}100%{transform:translate(var(--sw,40px),-420px);opacity:0}}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
@@ -1531,15 +1576,30 @@ button{font:inherit;color:inherit}
 <template id="tpl-book">
   <section class="isec" id="book-pdf" data-sec="เล่มประกอบโครงงาน">
     <h2 class="ih"><b>📘</b>เล่มประกอบโครงงาน</h2>
-    <p class="sub-p" style="margin-bottom:16px">อ่านเล่มโครงงานฉบับสมบูรณ์ได้ที่นี่ · เลื่อนอ่านทีละหน้า หรือกดเต็มจอเพื่ออ่านสะดวกขึ้น</p>
-    <div class="flip" id="flip-book" aria-label="เล่มประกอบโครงงาน">
+    <p class="sub-p" style="margin-bottom:16px">กดลูกศรซ้าย–ขวา ปัดหน้าจอ หรือใช้ปุ่มลูกศรบนคีย์บอร์ดเพื่อเปลี่ยนหน้า · กดปุ่มหัวข้อด้านล่างเพื่อข้ามไปหน้านั้นได้ทันที</p>
+    <div class="flip" id="flip-book" data-dir="assets/book" data-n="110" tabindex="0" aria-label="เล่มประกอบโครงงาน 110 หน้า">
       <div class="fl-bar">
-        <span class="pdf-t"><i>PDF</i>เล่มโครงงาน</span>
+        <span class="pdf-t"><i>PDF</i>เล่มโครงงาน.pdf <small>· 110 หน้า</small></span>
         <button class="pdf-btn" type="button" data-fs="flip-book">⛶ เต็มจอ</button>
-        <a class="pdf-btn" href="https://drive.google.com/file/d/1DwA2SXQlfxECenlptTBkSiXvCt7zgTCR/view?usp=sharing" target="_blank" rel="noopener">Google Drive ↗</a>
+        <a class="pdf-btn" href="https://drive.google.com/file/d/1DwA2SXQlfxECenlptTBkSiXvCt7zgTCR/view?usp=drive_link" target="_blank" rel="noopener">Google Drive ↗</a>
         <a class="pdf-btn hot" href="https://drive.google.com/uc?export=download&amp;id=1DwA2SXQlfxECenlptTBkSiXvCt7zgTCR" target="_blank" rel="noopener">⬇ ดาวน์โหลด</a>
       </div>
-      <iframe class="book-embed" src="https://drive.google.com/file/d/1DwA2SXQlfxECenlptTBkSiXvCt7zgTCR/preview" title="เล่มโครงงานการพัฒนารูปแบบการจัดการเรียนรู้โดยใช้หุ่นยนต์ช่วยสอน" loading="lazy" allow="fullscreen"></iframe>
+      <div class="fl-toc" aria-label="ข้ามไปยังหัวข้อในเล่ม">
+        <button type="button" data-page="1">ปก</button><button type="button" data-page="2">บทคัดย่อ</button><button type="button" data-page="3">กิตติกรรมประกาศ</button><button type="button" data-page="4">สารบัญ</button>
+        <button type="button" data-page="8">บทที่ 1</button><button type="button" data-page="15">บทที่ 2</button><button type="button" data-page="27">บทที่ 3</button><button type="button" data-page="54">บทที่ 4</button><button type="button" data-page="70">บทที่ 5</button>
+        <button type="button" data-page="77">บรรณานุกรม</button><button type="button" data-page="79">ภาคผนวก</button>
+      </div>
+      <div class="fl-stage">
+        <button class="fl-nav prev" type="button" aria-label="หน้าก่อนหน้า">‹</button>
+        <div class="fl-page"><img alt="" draggable="false"></div>
+        <button class="fl-nav next" type="button" aria-label="หน้าถัดไป">›</button>
+      </div>
+      <div class="fl-foot">
+        <button class="fl-step" type="button" data-step="-10" aria-label="ย้อน 10 หน้า">«</button>
+        <input class="fl-range" type="range" min="1" value="1" aria-label="เลือกหน้า">
+        <button class="fl-step" type="button" data-step="10" aria-label="ไปอีก 10 หน้า">»</button>
+        <span class="fl-num">หน้า <input class="fl-in" type="number" min="1" value="1" aria-label="เลขหน้า"> / <b class="fl-tot"></b></span>
+      </div>
     </div>
   </section>
 </template>
@@ -2332,13 +2392,48 @@ window.__initRobocartModel = function () {
         cd.style.width=w+"px"; cd.style.top=(c*7+2)+"%"; cd.style.left=(c%2? 62+((c*37)%30) : -6+((c*29)%22))+"%";
         cd.style.opacity=(.55+((c*17)%40)/100).toFixed(2); cd.style.setProperty("--d",(45+(c*11)%40)+"s"); cl.appendChild(cd); }
       body.appendChild(cl); }
-    if(r.theme==="room"){ var bm=el("div","beams"); bm.setAttribute("aria-hidden","true"); bm.innerHTML="<i></i><i></i><i></i>"; body.appendChild(bm);
+    /* ก้อนแสงออโรร่า ใช้ร่วมกันหลายธีม */
+    function addAurora(cols){ var a=el("div","aurora"); a.setAttribute("aria-hidden","true");
+      for(var ai=0;ai<12;ai++){ var b=el("i"); b.style.setProperty("--c",cols[ai%cols.length]); b.style.setProperty("--s",(420+(ai*53)%200)+"px");
+        b.style.left=((ai%2?56:-12)+(ai*13)%22)+"%"; b.style.top=(ai*8-4)+"%"; b.style.setProperty("--d",(20+(ai*3)%12)+"s"); b.style.setProperty("--dl",(-ai*2.5)+"s");
+        b.style.setProperty("--x1",((ai%2?-1:1)*(90+ai*14))+"px"); b.style.setProperty("--y1",(-60-ai*8)+"px"); b.style.setProperty("--x2",((ai%2?1:-1)*(80+ai*10))+"px"); b.style.setProperty("--y2",(50+ai*10)+"px"); a.appendChild(b); }
+      body.appendChild(a); }
+    if(r.theme==="room"){ addAurora(["#ff7eb3","#ffb86b","#c084fc","#fcd34d","#fb7185","#f9a8d4"]);
+      /* เฟืองหมุนช้าๆ (สื่อถึงกระบวนการ) */
+      var gr=el("div","gears"); gr.setAttribute("aria-hidden","true");
+      [[ "-60px","6%","260px",".16","40s"],["82%","14%","200px",".14","32s"],["88%","44%","300px",".12","48s"],["-40px","58%","220px",".14","36s"],["80%","78%","240px",".16","42s"],["4%","90%","160px",".14","28s"]].forEach(function(g,gi){
+        var sv='<svg viewBox="0 0 100 100" class="'+(gi%2?'rev':'')+'" style="left:'+g[0]+';top:'+g[1]+';--s:'+g[2]+';--o:'+g[3]+';--d:'+g[4]+'"><circle cx="50" cy="50" r="38" fill="none" stroke="#fff" stroke-width="12" stroke-dasharray="9.95 9.95"/><circle cx="50" cy="50" r="31" fill="none" stroke="#fff" stroke-width="5"/><circle cx="50" cy="50" r="10" fill="none" stroke="#fff" stroke-width="5"/></svg>';
+        gr.insertAdjacentHTML("beforeend",sv); });
+      body.appendChild(gr);
+      /* แสงโบเก้ลอยขึ้น */
+      var bk=el("div","bokeh"); bk.setAttribute("aria-hidden","true"); var bkc=["rgba(255,230,180,.6)","rgba(255,180,200,.55)","rgba(255,210,150,.55)","rgba(220,190,255,.5)"];
+      for(var q6=0;q6<30;q6++){ var bs=el("span"); bs.style.left=((q6*41+3)%96)+"%"; bs.style.top=(4+q6*(92/30))+"%"; bs.style.setProperty("--s",(18+(q6*13)%46)+"px"); bs.style.setProperty("--b",((q6%3)*1.5)+"px"); bs.style.setProperty("--c",bkc[q6%4]); bs.style.setProperty("--d",(10+(q6*7)%10)+"s"); bs.style.setProperty("--dl",(-(q6*1.9))+"s"); bs.style.setProperty("--sw",(((q6*31)%80)-40)+"px"); bk.appendChild(bs); }
+      body.appendChild(bk);
+      var tk2=el("div","twinkle"); tk2.setAttribute("aria-hidden","true");
+      for(var q7=0;q7<26;q7++){ var t7=el("i"); t7.style.left=((q7*37+9)%97)+"%"; t7.style.top=((q7*23+5)%96)+"%"; t7.style.setProperty("--s",(8+(q7%4)*4)+"px"); t7.style.setProperty("--c",["#fff","#ffe7a3","#ffc8dd"][q7%3]); t7.style.setProperty("--d",(2.4+(q7%5)*.7)+"s"); t7.style.setProperty("--dl",(-(q7%7)*.45)+"s"); tk2.appendChild(t7); }
+      body.appendChild(tk2);
+      var bm=el("div","beams"); bm.setAttribute("aria-hidden","true"); bm.innerHTML="<i></i><i></i><i></i>"; body.appendChild(bm);
       var mt=el("div","motes"); mt.setAttribute("aria-hidden","true");
       for(var m=0;m<40;m++){ var mo=el("span","mote"); mo.style.left=((m*37)%100)+"%"; mo.style.top=((m*53)%100)+"%"; mo.style.setProperty("--s",(3+(m%4)*2)+"px"); mo.style.setProperty("--d",(10+(m*7)%14)+"s"); mo.style.animationDelay=(-(m%9))+"s"; mt.appendChild(mo); }
       body.appendChild(mt); }
-    if(r.theme==="class"){ var bm2=el("div","beams"); bm2.setAttribute("aria-hidden","true"); bm2.innerHTML="<i></i><i></i>"; body.appendChild(bm2);
+    if(r.theme==="class"){
+      /* ออโรร่าสีพาสเทลเคลื่อนที่ช้าๆ */
+      var au=el("div","aurora"); au.setAttribute("aria-hidden","true");
+      [["#5eead4","420px","-10%","-3%","22s"],["#7dd3fc","473px","71%","5%","25s"],["#fde68a","526px","-4%","13%","28s"],["#fbcfe8","579px","77%","21%","31s"],["#a7f3d0","452px","2%","29%","22s"],["#c4b5fd","505px","63%","37%","25s"],["#5eead4","558px","8%","45%","28s"],["#7dd3fc","431px","69%","53%","31s"],["#fde68a","484px","-6%","61%","22s"],["#fbcfe8","537px","75%","69%","25s"],["#a7f3d0","590px","0%","77%","28s"],["#c4b5fd","463px","61%","85%","31s"]].forEach(function(a,ai){ var b=el("i"); b.style.setProperty("--c",a[0]); b.style.setProperty("--s",a[1]); b.style.left=a[2]; b.style.top=a[3]; b.style.setProperty("--d",a[4]); b.style.setProperty("--dl",(-ai*3)+"s");
+        b.style.setProperty("--x1",((ai%2?-1:1)*(80+ai*20))+"px"); b.style.setProperty("--y1",(-60-ai*10)+"px"); b.style.setProperty("--x2",((ai%2?1:-1)*(70+ai*15))+"px"); b.style.setProperty("--y2",(50+ai*12)+"px"); au.appendChild(b); });
+      body.appendChild(au);
+      var bm2=el("div","beams"); bm2.setAttribute("aria-hidden","true"); bm2.innerHTML="<i></i><i></i>"; body.appendChild(bm2);
+      /* ฟองอากาศลอยขึ้น */
+      var bu=el("div","bubbles"); bu.setAttribute("aria-hidden","true");
+      var buc=["rgba(94,234,212,.35)","rgba(125,211,252,.35)","rgba(253,230,138,.4)","rgba(249,168,212,.35)"];
+      for(var q4=0;q4<34;q4++){ var bb=el("span"); bb.style.left=((q4*53+4)%96)+"%"; bb.style.top=(4+q4*(92/34))+"%"; bb.style.setProperty("--c",buc[q4%4]); bb.style.setProperty("--s",(10+(q4*7)%26)+"px"); bb.style.setProperty("--d",(8+(q4*5)%8)+"s"); bb.style.setProperty("--dl",(-(q4*1.7))+"s"); bb.style.setProperty("--sw",(((q4*29)%80)-40)+"px"); bu.appendChild(bb); }
+      body.appendChild(bu);
+      /* ประกายดาวกระพริบ */
+      var tk=el("div","twinkle"); tk.setAttribute("aria-hidden","true"); var tkc=["#ffffff","#fde047","#5eead4","#f9a8d4","#93c5fd"];
+      for(var q5=0;q5<40;q5++){ var ti=el("i"); ti.style.left=((q5*37+9)%97)+"%"; ti.style.top=((q5*23+5)%96)+"%"; ti.style.setProperty("--s",(8+(q5%4)*5)+"px"); ti.style.setProperty("--c",tkc[q5%tkc.length]); ti.style.setProperty("--d",(2.2+(q5%5)*.7)+"s"); ti.style.setProperty("--dl",(-(q5%7)*.45)+"s"); tk.appendChild(ti); }
+      body.appendChild(tk);
       /* จิ๊กซอว์ลอยไปมา: แก้จำนวนที่ JIG_N และสีที่ JIG_C */
-      var JIG_N=9, JIG_C=["#ffffff"];
+      var JIG_N=12, JIG_C=["#2dd4bf","#fbbf24","#fb7185","#60a5fa","#a78bfa","#34d399"];
       var JIG_P="M20 30H40a10 10 0 1 1 20 0H80V50a10 10 0 1 1 0 20V90H60a10 10 0 1 0-20 0H20V70a10 10 0 1 0 0-20Z";
       var jg=el("div","jigs"); jg.setAttribute("aria-hidden","true");
       for(var q3=0;q3<JIG_N;q3++){ var jp=el("span","jig"+(q3%2?" rev":"")), cc=JIG_C[q3%JIG_C.length];
@@ -2362,7 +2457,19 @@ window.__initRobocartModel = function () {
     if(r.theme==="space"){ var nn=el("div","neon"); nn.setAttribute("aria-hidden","true");
       for(var v=0;v<10;v++){ var ni=el("i"); ni.style.left=((v*23+6)%98)+"%"; ni.style.setProperty("--h",(120+(v%4)*60)+"px"); ni.style.setProperty("--d",(5+(v%5)*1.6)+"s"); ni.style.animationDelay=(-(v*0.9))+"s"; nn.appendChild(ni); }
       body.appendChild(nn); }
-    if(r.theme==="mars"){ var st=el("div","stars"); st.setAttribute("aria-hidden","true");
+    if(r.theme==="mars"){ addAurora(["#a78bfa","#f472b6","#60a5fa","#fb923c","#c084fc","#f9a8d4"]);
+      /* ดาวเคราะห์มีวงแหวนลอยอยู่ */
+      [["78%","6%","220px","#ffe0ea","#e07b9a","#6b2a5c","rgba(255,170,200,.45)","16s"],["-4%","40%","150px","#e0d4ff","#8b7be0","#3b2a7a","rgba(180,160,255,.45)","20s"],["84%","62%","110px","#ffe6c7","#f59e6b","#8a3a2a","rgba(255,190,140,.45)","14s"]].forEach(function(pl){
+        var px=el("span","planet-x"); px.setAttribute("aria-hidden","true"); px.style.left=pl[0]; px.style.top=pl[1]; px.style.setProperty("--s",pl[2]); px.style.setProperty("--c1",pl[3]); px.style.setProperty("--c2",pl[4]); px.style.setProperty("--c3",pl[5]); px.style.setProperty("--g",pl[6]); px.style.setProperty("--d",pl[7]); body.appendChild(px); });
+      /* ดาวตก */
+      var sh=el("div","shoot"); sh.setAttribute("aria-hidden","true");
+      for(var q8=0;q8<8;q8++){ var si8=el("i"); si8.style.left=(35+((q8*17)%65))+"%"; si8.style.top=((q8*11)%55)+"%"; si8.style.setProperty("--d",(7+(q8%4)*2.5)+"s"); si8.style.setProperty("--dl",(-(q8*2.1))+"s"); sh.appendChild(si8); }
+      body.appendChild(sh);
+      /* ประกายไฟลอยจากพื้นดาวอังคาร */
+      var em=el("div","embers"); em.setAttribute("aria-hidden","true");
+      for(var q9=0;q9<26;q9++){ var e9=el("i"); e9.style.left=((q9*37+5)%97)+"%"; e9.style.setProperty("--s",(3+(q9%3)*2)+"px"); e9.style.setProperty("--d",(7+(q9*3)%7)+"s"); e9.style.setProperty("--dl",(-(q9*1.3))+"s"); e9.style.setProperty("--sw",(((q9*23)%90)-45)+"px"); em.appendChild(e9); }
+      body.appendChild(em);
+      var st=el("div","stars"); st.setAttribute("aria-hidden","true");
       for(var z=0;z<60;z++){ var si=el("i"); si.style.left=((z*47)%100)+"%"; si.style.top=((z*31)%55)+"%"; si.style.setProperty("--s",(1.5+(z%3))+"px"); si.style.setProperty("--d",(2+(z%5))+"s"); si.style.animationDelay=(-(z%4)*.7)+"s"; st.appendChild(si); }
       for(var z2=0;z2<12;z2++){ var rb=el("b"); rb.style.left=((z2*61+9)%96)+"%"; rb.style.top=(45+((z2*13)%52))+"%"; rb.style.setProperty("--s",(10+(z2%4)*8)+"px"); rb.style.setProperty("--d",(10+(z2%5)*3)+"s"); st.appendChild(rb); }
       body.appendChild(st); }
