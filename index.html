@@ -199,6 +199,30 @@ button{font:inherit;color:inherit}
 .viewer .v-grid{grid-template-columns:minmax(0,2.5fr) minmax(280px,1fr);gap:20px;padding:0 clamp(16px,3vw,48px)}
 .viewer .canvas-box{height:clamp(380px,62vh,600px);border:0;border-radius:0}
 .viewer.expanded .canvas-box{height:calc(100vh - 210px)}
+.viewer:not(.expanded){max-width:1080px;margin-inline:auto;border-radius:28px;overflow:hidden;background:linear-gradient(180deg,#fffaf3,#fff);box-shadow:0 22px 60px rgba(30,0,30,.45),0 0 0 4px rgba(255,194,77,.9)}
+.viewer:not(.expanded) .v-grid{grid-template-columns:minmax(0,1.85fr) minmax(250px,1fr);gap:16px;padding:16px}
+.viewer:not(.expanded) .canvas-box{height:clamp(320px,50vh,460px);border:2px solid #f3e1d0;border-radius:18px}
+.btn-cam-angle,.btn-action-sm{color:#2a1030;background:#fff4e4;border:1px solid #f1d9bd;box-shadow:0 2px 0 rgba(184,64,30,.18)}
+.btn-cam-angle:hover,.btn-action-sm:hover{background:#ffe3b0;border-color:#ffc24d;transform:translateY(-1px)}
+.btn-cam-angle.active{background:linear-gradient(135deg,#ffc24d,#ff8a4c);color:#2a1030;border-color:#ffb703;box-shadow:0 3px 0 rgba(184,64,30,.4)}
+.btn-action-sm.active{background:linear-gradient(135deg,#6e2f63,#a42f6d);color:#fff;border-color:#a42f6d;box-shadow:0 3px 0 rgba(42,16,48,.35)}
+.cam-bar>div,.v-bottom{background:rgba(255,250,243,.96);border-color:#f1d9bd}
+.btn-y{background:linear-gradient(135deg,#ffc24d,#ff8a4c);color:#2a1030;box-shadow:0 3px 0 rgba(184,64,30,.4);transition:transform .15s,box-shadow .15s}
+.btn-y:hover{transform:translateY(-2px);box-shadow:0 5px 0 rgba(184,64,30,.4)}
+.btn-y:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(184,64,30,.4)}
+.status,.v-card{border-color:#f1e4f0;border-radius:16px;background:#fff}
+.status{border-left:5px solid #ffc24d}
+.preset-level-btn{border:2px solid #f1e4f0;border-left-width:6px;border-radius:14px;padding:10px 12px;color:#2a1030;transition:transform .2s,box-shadow .2s,border-color .2s}
+.preset-level-btn:hover{border-color:#ffc24d;transform:translateY(-2px);box-shadow:0 6px 14px rgba(110,47,99,.15)}
+.preset-level-btn.preset-active{background:linear-gradient(135deg,#fff4e4,#ffe3b0);border-color:#ff8a4c;box-shadow:0 0 0 3px rgba(255,194,77,.45)}
+.toggle{border:1px solid #f1e4f0;border-radius:12px;background:#fffaf3;color:#2a1030}
+.toggle:hover{border-color:#ffc24d}
+.toggle input{accent-color:#a42f6d}
+.servo{border-top:1px solid #f1e4f0}
+.btn-outline-primary,.btn-primary{border-color:#a42f6d}
+.btn-outline-primary{background:#fff;color:#a42f6d}.btn-primary{background:#a42f6d;color:#fff}
+#slider-servo{accent-color:#ff6b53}
+@media (max-width:900px){.viewer:not(.expanded) .v-grid{grid-template-columns:minmax(0,1fr)}}
 
 /* learning center (ไม่มีภาพ) */
 .lc{position:relative;display:block;overflow:hidden;isolation:isolate;border-radius:30px;text-decoration:none;color:#fff;background:linear-gradient(135deg,#c2407a 0%,#ef5a6f 36%,#ff7b54 72%,#ffa45c 100%);box-shadow:0 22px 50px rgba(220,80,90,.32);transition:transform .25s,box-shadow .25s}
